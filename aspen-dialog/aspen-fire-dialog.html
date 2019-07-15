@@ -1,11 +1,11 @@
-<link rel="import" href="/bower_components/polymer/polymer-element.html">
-<link rel="import" href="/bower_components/paper-dialog/paper-dialog.html">
+<script type="module" src="@polymer/polymer/polymer-element.js"></script>
+<script type="module" src="@polymer/paper-dialog/paper-dialog.js"></script>
 
-<link rel="import" href="/bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<script type="module" src="@polymer/paper-dialog-scrollable/paper-dialog-scrollable.js"></script>
 
-<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<script type="module" src="@polymer/paper-button/paper-button.js"></script>
 
-<link rel="import" href="aspen-fire-dialog-mixin.html">
+<script type="module" src="./aspen-fire-dialog-mixin.js"></script>
 
 <dom-module id="aspen-fire-dialog">
     <template>
@@ -73,32 +73,52 @@
             /**
              * String providing the tag name to register the element under.
              */
-            static get is() {
-                return 'aspen-fire-dialog';
-            }
+    <script type="module">
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import '@polymer/paper-dialog/paper-dialog.js';
+import '@polymer/paper-dialog-scrollable/paper-dialog-scrollable.js';
+import '@polymer/paper-button/paper-button.js';
+import './aspen-fire-dialog-mixin.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+/**
+ * `aspen-fire-dialog` this component is responsible for displaying detail pages. These are 
+ * components that implement the AspComponentModelMixin and are tagged with the CSS class
+ * ".detail-page".
+ *
+ * @summary ShortDescription.
+ * @customElement
+ * @polymer
+ * @extends {Polymer.Element}
+ */
+class AspFireDialog extends AspFireDialogMixin(PolymerElement) {
+    /**
+     * String providing the tag name to register the element under.
+     */
+    static get is() {
+        return 'aspen-fire-dialog';
+    }
 
-            /**
-             * Instance of the element is created/upgraded. Use: initializing state,
-             * set up event listeners, create shadow dom.
-             * @constructor
-             */
-            constructor() {
-                super();
-            }
+    /**
+     * Instance of the element is created/upgraded. Use: initializing state,
+     * set up event listeners, create shadow dom.
+     * @constructor
+     */
+    constructor() {
+        super();
+    }
 
-            /**
-             * Use for one-time configuration of your component after local DOM is initialized. 
-             */
-            ready() {
-                super.ready();
+    /**
+     * Use for one-time configuration of your component after local DOM is initialized. 
+     */
+    ready() {
+        super.ready();
 
-                Polymer.RenderStatus.afterNextRender(this, function () {
+        afterNextRender(this, function () {
 
-                });
-            }
+        });
+    }
 
-        }
+}
 
-        window.customElements.define(AspFireDialog.is, AspFireDialog);
-    </script>
-</dom-module>
+window.customElements.define(AspFireDialog.is, AspFireDialog);
+</script>
