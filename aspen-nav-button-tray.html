@@ -1,0 +1,121 @@
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
+<link rel="import" href="/bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="aspen-nav-bar-button.html">
+
+<dom-module id="aspen-nav-button-tray">
+	<template>
+		<style>
+			:host {
+				display: block;
+				--tray-background-color: rgba(255, 255, 255, 0.6);
+			}
+
+			.button-tray {
+				@apply --layout-vertical;
+				@apply --layout-center;
+				margin-top: 10px;
+				width: 100%;
+				background-color: var(--tray-background-color);
+			}
+
+			.row {
+				@apply --layout-horizontal;
+				@apply --layout-center;
+				margin-bottom: 20px;
+			}
+		</style>
+		<div class="button-tray">
+			<div class="row">
+				<template is="dom-repeat" items="[[buttons]]" as="button">
+
+					<aspen-nav-bar-button model="[[button]]"></aspen-nav-bar-button>
+
+				</template>
+			</div>
+
+
+		</div>
+	</template>
+
+	<script>
+		/**
+		 * `aspen-nav-button-tray` Description
+		 *
+		 * @summary ShortDescription.
+		 * @customElement
+		 * @polymer
+		 * @extends {Polymer.Element}
+		 */
+		class AspNavButtonTray extends Polymer.Element {
+			/**
+			 * String providing the tag name to register the element under.
+			 */
+			static get is() {
+				return 'aspen-nav-button-tray';
+			}
+
+			/**
+			 * Object describing property-related metadata used by Polymer features
+			 */
+			static get properties() {
+				return {
+					registry: {
+						type: Array,
+						value: []
+					},
+
+					buttons: {
+						type: Array,
+						computed: '_computeButtons(registry)'
+					}
+
+				};
+			}
+
+			/**
+			 * Instance of the element is created/upgraded. Use: initializing state,
+			 * set up event listeners, create shadow dom.
+			 * @constructor
+			 */
+			constructor() {
+				super();
+			}
+
+			/**
+			 * Use for one-time configuration of your component after local DOM is initialized. 
+			 */
+			ready() {
+				super.ready();
+
+				Polymer.RenderStatus.afterNextRender(this, function () {
+
+				});
+			}
+
+			_isFirstHalf(buttons, i) {
+				return i < 5;
+			}
+
+			_computeButtons(registry) {
+				var buttons = [];
+				if (registry != null) {
+					for (var i = 0; i < registry.length; i++) {
+						var buttonSet = registry[i];
+						for (var j = 0; j < buttonSet.length; j++) {
+							var button = buttonSet[j];
+							if (button.inTray) {
+								buttons.push(button);
+							}
+						}
+					}
+				}
+
+				return buttons;
+			}
+
+
+		}
+
+		window.customElements.define(AspNavButtonTray.is, AspNavButtonTray);
+	</script>
+</dom-module>

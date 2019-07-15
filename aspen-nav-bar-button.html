@@ -1,0 +1,102 @@
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="/bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="/bower_components/iron-label/iron-label.html">
+<link rell="import" href="/bower_components/font-roboto/roboto.html">
+<link rel="import" href="/bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<link rel="import" href="./aspen-nav-item-mixin.html">
+
+<dom-module id="aspen-nav-bar-button">
+	<template>
+		<style>
+			:host {
+				display: block;
+				--nav-icon-size: 48px;
+				--nav-icon-color: #2f466f;
+				--nav-label-color: #909090;
+				--nav-label-font-size: 12px;
+				--nav-label-width: 60px;
+			}
+
+			label {
+				color: var(--nav-label-color);
+				font-family: 'Roboto';
+				font-size: var(--nav-label-font-size);
+				width: var(--nav-label-width);
+			}
+
+			div {
+				@apply --layout-vertical;
+				@apply --layout-around-justified;
+				text-align: center;
+				width: 10vh;
+				margin-left: 5px;
+				margin-right: 5px;
+				margin-bottom: 10px;
+				;
+			}
+
+			div>iron-icon {
+				margin-left: auto;
+				margin-right: auto;
+				color: var(--nav-icon-color);
+				--iron-icon-height: var(--nav-icon-size);
+				--iron-icon-width: var(--nav-icon-size);
+			}
+
+			div>label {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+		<div>
+			<iron-icon icon="[[model.icon]]" on-click="_handleClick"></iron-icon>
+			<label>[[model.label]]</label>
+		</div>
+	</template>
+
+
+	<script>
+		/**
+		 * `aspen-nav-button` This component displays an icon and a label beneath it.
+		 *
+		 * @summary ShortDescription.
+		 * @customElement
+		 * @polymer
+		 * @extends {Polymer.Element}
+		 */
+		class AspNavBarButton extends AspNavItemMixin(Polymer.Element) {
+			/**
+			 * String providing the tag name to register the element under.
+			 */
+			static get is() {
+				return 'aspen-nav-bar-button';
+			}
+
+
+			/**
+			 * Instance of the element is created/upgraded. Use: initializing state,
+			 * set up event listeners, create shadow dom.
+			 * @constructor
+			 */
+			constructor() {
+				super();
+			}
+
+			/**
+			 * Use for one-time configuration of your component after local DOM is initialized. 
+			 */
+			ready() {
+				super.ready();
+
+				Polymer.RenderStatus.afterNextRender(this, function () {
+
+				});
+			}
+
+		}
+
+		window.customElements.define(AspNavBarButton.is, AspNavBarButton);
+	</script>
+</dom-module>

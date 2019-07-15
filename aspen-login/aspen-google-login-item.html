@@ -1,0 +1,74 @@
+<link rel="import" href="aspen-login-provider-item.html">
+<link rel="import" href="aspen-login-icons.html">
+
+<dom-module id="aspen-google-login-item">
+ 
+    <script>
+        /**
+         * `aspen-google-login-item` This component allows the user to log into the system using Google authentication.
+         *
+         * @summary ShortDescription.
+         * @customElement
+         * @polymer
+         * @extends {AspLoginProviderItem}
+         */
+        class AspGoogleLoginItem extends AspLoginProviderItem {
+            /**
+             * String providing the tag name to register the element under.
+             */
+            static get is() {
+                return 'aspen-google-login-item';
+            }
+
+
+            /**
+             * Instance of the element is created/upgraded. Use: initializing state,
+             * set up event listeners, create shadow dom.
+             * @constructor
+             */
+            constructor() {
+                super();
+
+                this.label = 'Google';
+                this.icon = 'login:google';
+            }
+
+            /**
+             * Use for one-time configuration of your component after local DOM is initialized. 
+             */
+            ready() {
+                super.ready();
+
+
+                Polymer.RenderStatus.afterNextRender(this, function() {
+                    
+                });
+            }
+
+            /** @Override */
+            createAccount(response){
+                let firebaseUser = response.additionalUserInfo.profile
+                let user = {
+                    firstName: firebaseUser.given_name,
+                    lastName: firebaseUser.family_name,
+                    email: firebaseUser.email,
+                    avatar: firebaseUser.picture
+                };
+                this.dispatchEvent(new CustomEvent('show-create-account-dialog', {
+                    bubbles: true,
+                    composed: true,
+                    detail: {
+                        user: user,
+                        provider: 'google',
+                        uid: firebaseUser.uid
+                    }
+                }));
+            }
+
+
+
+        }
+
+        window.customElements.define(AspGoogleLoginItem.is, AspGoogleLoginItem);
+    </script>
+</dom-module>
