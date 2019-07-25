@@ -1,4 +1,4 @@
-# \<aspen-nav-menu\>
+# <aspen-nav-menu\>
 
 This component is the top-level  application navigation component.  
 

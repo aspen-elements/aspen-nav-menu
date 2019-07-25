@@ -1,4 +1,4 @@
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement,html } from '@polymer/polymer/polymer-element.js';
 import '@polymer/paper-item/paper-icon-item.js';
 import '@polymer/paper-item/paper-item.js';
 import '@polymer/iron-icon/iron-icon.js';
@@ -15,6 +15,63 @@ import { AspNavItemMixin } from './aspen-nav-item-mixin';
  * @extends {Polymer.Element}
  */
 class AspNavMenuItem extends AspNavItemMixin(PolymerElement) {
+
+  static get template(){
+    return html `
+
+    <style>
+			:host {
+				display: block;
+				--icon-size: 24px;
+				--icon-color: white;
+				--label-color:white;
+				--label-font-size: 0.9em;
+				--label-font-weight: normal;
+				--disabled-color: #909090;
+			}
+			
+			.menu-item{
+				
+				@apply --layout-horizontal;
+			}
+
+			paper-icon-item{
+				--paper-item-icon-width: 24px;
+				--paper-item-icon:{
+					color: var(--icon-color);
+					margin-right: 5px;
+					--iron-icon-height: var(--icon-size);
+					--iron-icon-width: var(--icon-size);
+				}
+			}
+
+			paper-icon-item[disabled]{
+				--paper-item-icon:{
+					color: var(--disabled-color);
+					margin-right: 5px;
+					--iron-icon-height: var(--icon-size);
+					--iron-icon-width: var(--icon-size);
+				}
+			}
+
+			paper-icon-item > label{
+				margin-top: 3px;
+				font-family: 'Roboto';
+				font-weight: var(--label-font-weight);
+				font-size: var(--label-font-size);
+				color: var(--label-color);
+			}
+
+			paper-icon-item[disabled] > label{
+				color: var(--disabled-color);
+			}
+		</style>
+		
+		 <paper-icon-item disabled="[[disabled]]">
+			 <iron-icon icon="[[icon]]" slot="item-icon"></iron-icon><label>[[label]]</label>
+	     </paper-icon-item>
+    `;
+  }
   /**
    * String providing the tag name to register the element under.
    */

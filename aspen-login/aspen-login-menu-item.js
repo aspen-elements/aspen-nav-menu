@@ -1,4 +1,4 @@
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement,html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/paper-item/paper-icon-item.js';
 import '@polymer/paper-item/paper-item.js';
 import '@polymer/iron-icon/iron-icon.js';
@@ -18,6 +18,45 @@ import { AspNavItemMixin } from './../aspen-nav-item-mixin';
  * @extends {Polymer.Element}
  */
 class AspLoginMenuItem extends AspNavItemMixin(PolymerElement) {
+
+  static get template(){
+    return html `
+    <style>
+    :host {
+      display: block;
+      --icon-size: 24px;
+      --icon-color: white;
+      --label-color:white;
+      --label-font-size: 0.9em;
+      --label-font-weight: normal;
+
+    }
+
+    paper-icon-item{
+      --paper-item-icon-width: 24px;
+      --paper-item-icon:{
+        color: white;
+        margin-right: 5px;
+        --iron-icon-height: var(--icon-size);
+        --iron-icon-width: var(--icon-size);
+      }			
+    }
+
+    label{
+      margin-top: 3px;
+      font-family: 'Roboto';
+      font-size: var(--label-font-size);
+      color: var(--label-color);
+    }
+    
+  </style>
+  
+   <paper-icon-item>
+     <iron-icon icon="[[icon]]" slot="item-icon"></iron-icon><label>[[label]]</label>
+     </paper-icon-item>
+    
+    `;
+  }
   /**
    * String providing the tag name to register the element under.
    */

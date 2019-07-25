@@ -3,13 +3,23 @@
 
 <head>
   <meta charset="utf-8">
-  <!-- <meta http-equiv="refresh" content="0;url=demo/" /> -->
   <title>aspen-nav-menu</title>
-  <script type="module" src="./all-imports.js"></script>
+  <script type="module">
+    import './aspen-nav-menu.js'
+  </script>
 </head>
 
 <body>
-  <aspen-nav-menu></aspen-nav-menu>
+  <aspen-nav-menu>
+  </aspen-nav-menu>
 </body>
+
+<script>
+
+document.addEventListener('show-msg', function (event) {
+
+  alert(event.detail.msg);
+});
+</script>
 
 </html>
