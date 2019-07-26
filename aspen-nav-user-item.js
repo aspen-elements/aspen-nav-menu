@@ -3,9 +3,9 @@ import '@polymer/paper-item/paper-item.js';
 import '@polymer/iron-image/iron-image.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/font-roboto/roboto.js';
-import './aspen-nav-item-mixin.js';
+
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
-import { AspNavItemMixin } from './aspen-nav-item-mixin';
+import { AspenNavItemMixin } from './aspen-nav-item-mixin';
 /**
  * `aspen-nav-user-item` This component displays the currently logged in user's avatar
  *
@@ -14,7 +14,7 @@ import { AspNavItemMixin } from './aspen-nav-item-mixin';
  * @polymer
  * @extends {Polymer.Element}
  */
-class AspNavUserItem extends AspNavItemMixin(PolymerElement) {
+class AspNavUserItem extends AspenNavItemMixin(PolymerElement) {
   /**
    * String providing the tag name to register the element under.
    */

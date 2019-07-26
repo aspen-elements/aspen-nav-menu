@@ -7,7 +7,7 @@ import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import './aspen-login-icons.js';
 import '../aspen-nav-menu-mixin.js';
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
-import { AspNavItemMixin } from './../aspen-nav-item-mixin';
+import { AspenNavItemMixin } from './../aspen-nav-item-mixin';
 /**
  * `aspen-nav-menu-item` This component displays a login menu item. The menu item changes its view
  * and behavior depending on the current login state.
@@ -17,7 +17,7 @@ import { AspNavItemMixin } from './../aspen-nav-item-mixin';
  * @polymer
  * @extends {Polymer.Element}
  */
-class AspLoginMenuItem extends AspNavItemMixin(PolymerElement) {
+class AspLoginMenuItem extends AspenNavItemMixin(PolymerElement) {
 
   static get template(){
     return html `

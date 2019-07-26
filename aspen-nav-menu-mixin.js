@@ -3,7 +3,7 @@
  * @polymerMixin
  * @mixinFunction
  */
-export const AspNavMenuMixin = superclass =>
+export const AspenNavMenuMixin = superclass =>
   class extends superclass {
     /**
      * Object describing property-related metadata used by Polymer features

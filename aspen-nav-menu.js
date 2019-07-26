@@ -1,15 +1,14 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-selector/iron-selector.js';
 import './aspen-icons/aspen-icons.js';
-import './aspen-security/aspen-securable-mixin.js';
 import './aspen-login/aspen-login-menu-item.js';
 import './aspen-nav-menu-item.js';
 import './aspen-secure-nav-menu-item.js';
 import './aspen-nav-user-item.js';
-import './aspen-nav-menu-mixin.js';
+
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
-import { AspSecurableMixin } from './aspen-security/aspen-securable-mixin';
-import { AspNavMenuMixin } from './aspen-nav-menu-mixin';
+import { AspenSecurableMixin } from '@aspen-elements/aspen-securable-mixin';
+import { AspenNavMenuMixin } from './aspen-nav-menu-mixin';
 /**
  * `aspen-nav-menu` This component is responsible for displaying the navigation menu.
  *
@@ -18,7 +17,7 @@ import { AspNavMenuMixin } from './aspen-nav-menu-mixin';
  * @polymer
  * @extends {Polymer.Element}
  */
-class AspNavMenu extends AspSecurableMixin(AspNavMenuMixin(PolymerElement)) {
+class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) {
   static get template() {
     return html`
       <style>

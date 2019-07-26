@@ -10,19 +10,20 @@
   },
   "main": "aspen-nav-menu.js",
   "dependencies": {
-    "@polymer/polymer": "^3.0.0",
+    "@aspen-elements/aspen-securable-mixin": "^0.5.0",
     "@polymer/iron-flex-layout": "^3.0.0",
     "@polymer/iron-icon": "^3.0.0",
     "@polymer/iron-icons": "^3.0.0",
     "@polymer/iron-iconset-svg": "^3.0.0",
-    "@polymer/iron-label": "^3.0.0",
-    "@polymer/paper-item": "^3.0.0",
-    "@polymer/iron-selector": "^3.0.0",
     "@polymer/iron-image": "^3.0.0",
-    "@polymer/paper-input": "^3.0.0",
+    "@polymer/iron-label": "^3.0.0",
+    "@polymer/iron-selector": "^3.0.0",
     "@polymer/paper-button": "^3.0.0",
+    "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",
-    "@polymer/paper-dialog": "^3.0.0"
+    "@polymer/paper-input": "^3.0.0",
+    "@polymer/paper-item": "^3.0.0",
+    "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0",
