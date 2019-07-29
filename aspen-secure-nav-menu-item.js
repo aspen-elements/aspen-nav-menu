@@ -6,7 +6,7 @@ import '@polymer/font-roboto/roboto.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
-import { AspenNavItemMixin } from './aspen-nav-item-mixin';
+import { AspenNavItemMixin } from '@aspen-elements/aspen-nav-item-mixin';
 import { AspenSecurableMixin } from '@aspen-elements/aspen-securable-mixin';
 /**
  * `aspen-secure-nav-menu-item` Description

@@ -5,7 +5,7 @@ import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/font-roboto/roboto.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
-import { AspenNavItemMixin } from './aspen-nav-item-mixin';
+import { AspenNavItemMixin } from '@aspen-elements/aspen-nav-item-mixin';
 /**
  * `aspen-nav-menu-item` This menu item allows the user to navigate to a particular page.
  *

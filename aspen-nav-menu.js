@@ -61,23 +61,18 @@ class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) 
           <hr />
 
           <aspen-nav-menu-item
-            label="Subscribe"
-            icon="aspen:ticket"
-            page="subscribe"
-            disabled="[[!isLoggedIn]]"
-          >
-          </aspen-nav-menu-item>
-          <aspen-nav-menu-item
             label="Home"
             icon="aspen:home"
             page="home-page"
           ></aspen-nav-menu-item>
+
           <aspen-nav-menu-item
             label="Communities"
             icon="aspen:people"
             page="communities"
             disabled="[[!isLoggedIn]]"
           ></aspen-nav-menu-item>
+
           <aspen-nav-menu-item
             label="Companies"
             icon="aspen:domain"
@@ -85,13 +80,7 @@ class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) 
             disabled="[[!isLoggedIn]]"
           >
           </aspen-nav-menu-item>
-          <aspen-nav-menu-item
-            label="News"
-            icon="aspen:news"
-            page="news"
-            disabled="[[!isLoggedIn]]"
-          >
-          </aspen-nav-menu-item>
+          
           <aspen-nav-menu-item
             label="Resources"
             icon="aspen:truck"
@@ -99,6 +88,7 @@ class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) 
             disabled="[[!isLoggedIn]]"
           >
           </aspen-nav-menu-item>
+
           <aspen-nav-menu-item
             label="Investors &amp; Partners"
             icon="aspen:investor"
@@ -106,14 +96,6 @@ class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) 
             disabled="[[!isLoggedIn]]"
           ></aspen-nav-menu-item>
 
-          <hr />
-          <aspen-nav-menu-item
-            label="Activity"
-            icon="aspen:whatshot"
-            page="activities"
-            disabled="[[!isLoggedIn]]"
-          >
-          </aspen-nav-menu-item>
           <aspen-nav-menu-item
             label="Events"
             icon="aspen:calendar"
@@ -121,15 +103,7 @@ class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) 
             disabled="[[!isLoggedIn]]"
           >
           </aspen-nav-menu-item>
-          <aspen-nav-menu-item
-            label="Portfolio"
-            icon="aspen:work"
-            page="portfolio"
-            disabled="[[!isLoggedIn]]"
-          >
-          </aspen-nav-menu-item>
-
-          <hr />
+          
           <aspen-nav-menu-item
             label="Advice"
             icon="aspen:advice"
@@ -138,12 +112,6 @@ class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) 
           >
           </aspen-nav-menu-item>
 
-          <aspen-nav-menu-item
-            label="Feedback"
-            icon="aspen:feedback"
-            page="https://docs.google.com/forms/d/e/1FAIpQLSdGkRuB9X3jHY89RgtJC9IvnNyGXMicrKVtqGrKi2dqTlYB4g/viewform?usp=pp_url&amp;entry.490618000=Have+someone+follow+up+with+me."
-          >
-          </aspen-nav-menu-item>
           <aspen-secure-nav-menu-item
             label="Settings"
             icon="aspen:settings"
