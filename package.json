@@ -12,6 +12,7 @@
   "dependencies": {
     "@aspen-elements/aspen-icons": "^0.5.2",
     "@aspen-elements/aspen-login-icons": "^0.5.0",
+    "@aspen-elements/aspen-login-menu-item": "^0.5.1",
     "@aspen-elements/aspen-securable-mixin": "^0.5.0",
     "@polymer/iron-flex-layout": "^3.0.0",
     "@polymer/iron-icon": "^3.0.0",
