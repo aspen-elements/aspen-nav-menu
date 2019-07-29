@@ -4,7 +4,7 @@ import '@polymer/paper-item/paper-item.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/font-roboto/roboto.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
-import './aspen-login-icons.js';
+import '@aspen-elements/aspen-login-icons';
 import '../aspen-nav-menu-mixin.js';
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 import { AspenNavItemMixin } from './../aspen-nav-item-mixin';
