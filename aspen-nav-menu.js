@@ -1,6 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-selector/iron-selector.js';
-import './aspen-icons/aspen-icons.js';
+import '@aspen-elements/aspen-icons';
 import './aspen-login/aspen-login-menu-item.js';
 import './aspen-nav-menu-item.js';
 import './aspen-secure-nav-menu-item.js';
