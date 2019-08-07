@@ -17,7 +17,7 @@ import { AspenNavMenuMixin } from './aspen-nav-menu-mixin';
  * @polymer
  * @extends {Polymer.Element}
  */
-class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) {
+class AspenNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) {
   static get template() {
     return html`
       <style>
@@ -163,4 +163,4 @@ class AspNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) 
   }
 }
 
-window.customElements.define(AspNavMenu.is, AspNavMenu);
+window.customElements.define(AspenNavMenu.is, AspenNavMenu);
