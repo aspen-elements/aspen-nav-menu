@@ -112,6 +112,14 @@ class AspenNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)
           >
           </aspen-nav-menu-item>
 
+          <aspen-nav-menu-item
+            label="Curation"
+            icon="aspen:pencil"
+            page="curation-queue"
+            disabled="[[!isLoggedIn]]"
+          >
+          </aspen-nav-menu-item>
+
           <aspen-secure-nav-menu-item
             label="Settings"
             icon="aspen:settings"
