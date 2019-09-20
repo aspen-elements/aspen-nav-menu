@@ -1,4 +1,4 @@
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement ,html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/paper-item/paper-icon-item.js';
 import '@polymer/paper-item/paper-item.js';
 import '@polymer/iron-icon/iron-icon.js';
@@ -19,6 +19,53 @@ import { AspenSecurableMixin } from '@aspen-elements/aspen-securable-mixin';
 class AspenSecureNavMenuItem extends AspenSecurableMixin(
   AspenNavItemMixin(PolymerElement)
 ) {
+
+  static get template(){
+    return html 
+    `
+    <style>
+    :host {
+      display: block;
+      --icon-size: 24px;
+      --icon-color: white;
+      --label-color:white;
+      --label-font-size: 0.9em;
+      --label-font-weight: normal;
+
+    }
+    
+    .menu-item{
+      
+      @apply --layout-horizontal;
+    }
+
+    paper-icon-item{
+      --paper-item-icon-width: 24px;
+      --paper-item-icon:{
+        color: var(--icon-color);
+        margin-right: 5px;
+        --iron-icon-height: var(--icon-size);
+        --iron-icon-width: var(--icon-size);
+      }
+    }
+
+    label{
+      margin-top: 3px;
+      font-family: 'Roboto';
+      font-size: var(--label-font-size);
+      color: var(--label-color);
+    }
+
+  </style>
+      
+    <template is="dom-if" if="[[hasRole]]">
+   <paper-icon-item disabled="[[disabled]]">
+     <iron-icon icon="[[icon]]" slot="item-icon"></iron-icon><label>[[label]]</label>
+       </paper-icon-item>
+      </template>
+    `
+  }
+
   /**
    * String providing the tag name to register the element under.
    */
