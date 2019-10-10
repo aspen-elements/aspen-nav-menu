@@ -1,11 +1,11 @@
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
-import '@polymer/paper-item/paper-item.js';
-import '@polymer/iron-image/iron-image.js';
-import '@polymer/iron-icon/iron-icon.js';
-import '@polymer/font-roboto/roboto.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
+import "@polymer/paper-item/paper-item.js";
+import "@polymer/iron-image/iron-image.js";
+import "@polymer/iron-icon/iron-icon.js";
+import "@polymer/font-roboto/roboto.js";
 
-import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
-import { AspenNavItemMixin } from '@aspen-elements/aspen-nav-item-mixin';
+import { afterNextRender } from "@polymer/polymer/lib/utils/render-status.js";
+import { AspenNavItemMixin } from "@aspen-elements/aspen-nav-item-mixin";
 /**
  * `aspen-nav-user-item` This component displays the currently logged in user's avatar
  *
@@ -15,11 +15,58 @@ import { AspenNavItemMixin } from '@aspen-elements/aspen-nav-item-mixin';
  * @extends {Polymer.Element}
  */
 class AspNavUserItem extends AspenNavItemMixin(PolymerElement) {
+  static get template() {
+    return html`
+      <style>
+        :host {
+          display: block;
+          --size: 32px;
+        }
+        paper-item {
+          height: 57px;
+          @apply --layout-horizontal;
+        }
+
+        iron-image {
+          border-radius: 50%;
+          margin-top: 5px;
+          border: 2px solid white;
+          width: var(--size);
+          height: var(--size);
+        }
+        .label {
+          font-family: "Roboto";
+          margin-left: 5px;
+          margin-top: 10px;
+          color: white;
+        }
+        iron-icon {
+          margin-top: 5px;
+          border: 1px solid #909090;
+          border-radius: 50%;
+          color: #909090;
+          --iron-icon-height: var(--size);
+          --iron-icon-width: var(--size);
+        }
+      </style>
+
+      <paper-item disabled="[[disabled]]">
+        <template is="dom-if" if="[[hasAvatar]]">
+          <iron-image src="[[avatarUrl]]" preload sizing="cover"></iron-image>
+        </template>
+        <template is="dom-if" if="[[!hasAvatar]]">
+          <iron-icon icon="aspen:person"></iron-icon>
+        </template>
+        <div class="label">[[name]]</div>
+      </paper-item>
+    `;
+  }
+
   /**
    * String providing the tag name to register the element under.
    */
   static get is() {
-    return 'aspen-nav-user-item';
+    return "aspen-nav-user-item";
   }
 
   /**
@@ -48,19 +95,19 @@ class AspNavUserItem extends AspenNavItemMixin(PolymerElement) {
       /** The URL of the user's avatar */
       avatarUrl: {
         type: String,
-        computed: '__computeAvatarUrl(profile, model)'
+        computed: "__computeAvatarUrl(profile, model)"
       },
 
       /** The name of the user. */
       name: {
         type: String,
-        computed: '__computeName(profile, model)'
+        computed: "__computeName(profile, model)"
       },
 
       /** A flag that determines if the model has been set. */
       hasAvatar: {
         type: Boolean,
-        computed: '__hasAvatar(avatarUrl)'
+        computed: "__hasAvatar(avatarUrl)"
       }
     };
   }
@@ -71,7 +118,7 @@ class AspNavUserItem extends AspenNavItemMixin(PolymerElement) {
    * @param {Object} model the firebase user object
    */
   __computeAvatarUrl(profile, model) {
-    let url = '';
+    let url = "";
 
     if (model && model.photoUrl) {
       url = model.photoURL;
@@ -106,14 +153,22 @@ class AspNavUserItem extends AspenNavItemMixin(PolymerElement) {
    * @param {Object} model the firebase user model
    */
   __computeName(profile, model) {
-    let name = '';
+    let name = "";
+
+    if (model === null) {
+      return "Not Signed In";
+    }
 
     if (model && model.displayName) {
       name = model.displayName;
     } else if (profile && profile.firstName && profile.lastName) {
-      name = profile.firstName + ' ' + profile.lastName;
+      name = profile.firstName + " " + profile.lastName;
+    } else if (model.email.length > 1 && model.email !== null) {
+      //this is important when we are using email to  sign in especially for curator, when a user does not
+      //need to fill out  a form giving first name , last name etc.
+      name = model.email;
     } else {
-      name = 'Not Signed In';
+      name = "Not Signed In";
     }
 
     return name;
@@ -125,12 +180,12 @@ class AspNavUserItem extends AspenNavItemMixin(PolymerElement) {
    * @param {String} avatarUrl a string containing the avatar URL
    */
   __hasAvatar(avatarUrl) {
-    return avatarUrl != null && avatarUrl != '';
+    return avatarUrl != null && avatarUrl != "";
   }
 
   _handleClick() {
     this.dispatchEvent(
-      new CustomEvent('page-changed', {
+      new CustomEvent("page-changed", {
         bubbles: true,
         composed: true,
         detail: {

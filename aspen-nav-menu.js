@@ -1,14 +1,16 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '@polymer/iron-selector/iron-selector.js';
-import '@aspen-elements/aspen-icons';
-import '@aspen-elements/aspen-login-menu-item';
-import '@aspen-elements/aspen-login-menu-item'
-import './aspen-secure-nav-menu-item.js';
-import './aspen-nav-user-item.js';
-import '@aspen-elements/aspen-nav-menu-item'
-import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
-import { AspenSecurableMixin } from '@aspen-elements/aspen-securable-mixin';
-import { AspenNavMenuMixin } from './aspen-nav-menu-mixin';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
+import "@polymer/iron-selector/iron-selector.js";
+import "@aspen-elements/aspen-icons";
+import "@aspen-elements/aspen-login-menu-item";
+import "@aspen-elements/aspen-login-menu-item";
+import "./aspen-secure-nav-menu-item.js";
+import "./aspen-nav-user-item.js";
+import "@aspen-elements/aspen-nav-menu-item";
+import { afterNextRender } from "@polymer/polymer/lib/utils/render-status.js";
+import { AspenSecurableMixin } from "@aspen-elements/aspen-securable-mixin";
+import { AspenNavMenuMixin } from "./aspen-nav-menu-mixin";
+import "./aspen-nav-user-item.js";
+
 /**
  * `aspen-nav-menu` This component is responsible for displaying the navigation menu.
  *
@@ -17,7 +19,9 @@ import { AspenNavMenuMixin } from './aspen-nav-menu-mixin';
  * @polymer
  * @extends {Polymer.Element}
  */
-class AspenNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)) {
+class AspenNavMenu extends AspenSecurableMixin(
+  AspenNavMenuMixin(PolymerElement)
+) {
   static get template() {
     return html`
       <style>
@@ -35,7 +39,7 @@ class AspenNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)
           overflow-y: scroll;
         }
 
-        aspen-nav-menu-item[label='Subscribe'] {
+        aspen-nav-menu-item[label="Subscribe"] {
           --icon-color: rgb(249, 200, 40);
         }
 
@@ -80,7 +84,7 @@ class AspenNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)
             disabled="[[!isLoggedIn]]"
           >
           </aspen-nav-menu-item>
-          
+
           <aspen-nav-menu-item
             label="Resources"
             icon="aspen:truck"
@@ -103,7 +107,7 @@ class AspenNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)
             disabled="[[!isLoggedIn]]"
           >
           </aspen-nav-menu-item>
-          
+
           <aspen-nav-menu-item
             label="Advice"
             icon="aspen:advice"
@@ -120,12 +124,12 @@ class AspenNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)
           >
           </aspen-nav-menu-item>
           <aspen-nav-menu-item
-          label="Indications"
-          icon="aspen:clinical-trial"
-          page="settings-indications"
-          disabled="[[!isLoggedIn]]"
-        >
-        </aspen-nav-menu-item>
+            label="Indications"
+            icon="aspen:clinical-trial"
+            page="settings-indications"
+            disabled="[[!isLoggedIn]]"
+          >
+          </aspen-nav-menu-item>
 
           <aspen-secure-nav-menu-item
             label="Settings"
@@ -146,7 +150,7 @@ class AspenNavMenu extends AspenSecurableMixin(AspenNavMenuMixin(PolymerElement)
    * String providing the tag name to register the element under.
    */
   static get is() {
-    return 'aspen-nav-menu';
+    return "aspen-nav-menu";
   }
 
   static get properties() {
