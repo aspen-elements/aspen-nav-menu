@@ -194,11 +194,11 @@ class AspenNavMenu extends AspenSecurableMixin(
               has-role="[[claims.isAdmin]]"
             >
             </aspen-secure-nav-menu-item>
-            <aspen-login-menu-item
-              page="login"
-              is-logged-in="[[isLoggedIn]]"
-            ></aspen-login-menu-item>
           </template>
+          <aspen-login-menu-item
+            page="login"
+            is-logged-in="[[isLoggedIn]]"
+          ></aspen-login-menu-item>
         </iron-selector>
       </div>
     `;
