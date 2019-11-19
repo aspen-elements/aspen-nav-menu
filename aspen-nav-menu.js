@@ -63,6 +63,15 @@ class AspenNavMenu extends AspenSecurableMixin(
             disabled="[[!isLoggedIn]]"
           ></aspen-nav-user-item>
           <hr />
+          <template is="dom-if" if="[[!admin]]">
+            <aspen-nav-menu-item
+              label="Subscribe"
+              icon="aspen:ticket"
+              page="subscribe"
+              disabled="[[!isLoggedIn]]"
+            >
+            </aspen-nav-menu-item>
+          </template>
 
           <aspen-nav-menu-item
             label="Home"
@@ -75,7 +84,8 @@ class AspenNavMenu extends AspenSecurableMixin(
             icon="aspen:people"
             page="communities"
             disabled="[[!isLoggedIn]]"
-          ></aspen-nav-menu-item>
+          >
+          </aspen-nav-menu-item>
 
           <aspen-nav-menu-item
             label="Companies"
@@ -84,6 +94,16 @@ class AspenNavMenu extends AspenSecurableMixin(
             disabled="[[!isLoggedIn]]"
           >
           </aspen-nav-menu-item>
+
+          <template is="dom-if" if="[[!admin]]">
+            <aspen-nav-menu-item
+              label="News"
+              icon="aspen:news"
+              page="news"
+              disabled="[[!isLoggedIn]]"
+            >
+            </aspen-nav-menu-item>
+          </template>
 
           <aspen-nav-menu-item
             label="Resources"
@@ -100,6 +120,17 @@ class AspenNavMenu extends AspenSecurableMixin(
             disabled="[[!isLoggedIn]]"
           ></aspen-nav-menu-item>
 
+          <template is="dom-if" if="[[!admin]]">
+            <hr />
+            <aspen-nav-menu-item
+              label="Activity"
+              icon="aspen:whatshot"
+              page="activities"
+              disabled="[[!isLoggedIn]]"
+            >
+            </aspen-nav-menu-item>
+          </template>
+
           <aspen-nav-menu-item
             label="Events"
             icon="aspen:calendar"
@@ -107,6 +138,18 @@ class AspenNavMenu extends AspenSecurableMixin(
             disabled="[[!isLoggedIn]]"
           >
           </aspen-nav-menu-item>
+
+          <template is="dom-if" if="[[!admin]]">
+            <aspen-nav-menu-item
+              label="Portfolio"
+              icon="aspen:work"
+              page="portfolio"
+              disabled="[[!isLoggedIn]]"
+            >
+            </aspen-nav-menu-item>
+
+            <hr />
+          </template>
 
           <aspen-nav-menu-item
             label="Advice"
@@ -116,31 +159,43 @@ class AspenNavMenu extends AspenSecurableMixin(
           >
           </aspen-nav-menu-item>
 
-          <aspen-nav-menu-item
-            label="Curation"
-            icon="aspen:pencil"
-            page="curation-queue"
-            disabled="[[!isLoggedIn]]"
-          >
-          </aspen-nav-menu-item>
-          <aspen-nav-menu-item
-            label="Indications"
-            icon="aspen:clinical-trial"
-            page="settings-indications"
-            disabled="[[!isLoggedIn]]"
-          >
-          </aspen-nav-menu-item>
+          <template is="dom-if" if="[[!admin]]">
+            <aspen-nav-menu-item
+              label="Feedback"
+              icon="aspen:feedback"
+              page="https://docs.google.com/forms/d/e/1FAIpQLSdGkRuB9X3jHY89RgtJC9IvnNyGXMicrKVtqGrKi2dqTlYB4g/viewform?usp=pp_url&entry.490618000=Have+someone+follow+up+with+me."
+            >
+            </aspen-nav-menu-item>
+          </template>
 
-          <aspen-secure-nav-menu-item
-            label="Settings"
-            icon="aspen:settings"
-            page="settings"
-            has-role="[[claims.isAdmin]]"
-          ></aspen-secure-nav-menu-item>
-          <aspen-login-menu-item
-            page="login"
-            is-logged-in="[[isLoggedIn]]"
-          ></aspen-login-menu-item>
+          <template is="dom-if" if="[[admin]]">
+            <aspen-nav-menu-item
+              label="Curation"
+              icon="aspen:pencil"
+              page="curation-queue"
+              disabled="[[!isLoggedIn]]"
+            >
+            </aspen-nav-menu-item>
+            <aspen-nav-menu-item
+              label="Indications"
+              icon="aspen:clinical-trial"
+              page="settings-indications"
+              disabled="[[!isLoggedIn]]"
+            >
+            </aspen-nav-menu-item>
+
+            <aspen-secure-nav-menu-item
+              label="Settings"
+              icon="aspen:settings"
+              page="settings"
+              has-role="[[claims.isAdmin]]"
+            >
+            </aspen-secure-nav-menu-item>
+            <aspen-login-menu-item
+              page="login"
+              is-logged-in="[[isLoggedIn]]"
+            ></aspen-login-menu-item>
+          </template>
         </iron-selector>
       </div>
     `;
@@ -159,6 +214,11 @@ class AspenNavMenu extends AspenSecurableMixin(
         type: Object,
         value: null,
         notify: true
+      },
+
+      admin: {
+        type: Boolean,
+        value: false
       }
     };
   }
