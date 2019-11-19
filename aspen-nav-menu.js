@@ -79,6 +79,16 @@ class AspenNavMenu extends AspenSecurableMixin(
             page="home-page"
           ></aspen-nav-menu-item>
 
+          <template is="dom-if" if="[[admin]]">
+            <aspen-nav-menu-item
+              label="Curation Queue"
+              icon="aspen:pencil"
+              page="curation-queue"
+              disabled="[[!isLoggedIn]]"
+            >
+            </aspen-nav-menu-item>
+          </template>
+
           <aspen-nav-menu-item
             label="Communities"
             icon="aspen:people"
@@ -169,13 +179,6 @@ class AspenNavMenu extends AspenSecurableMixin(
           </template>
 
           <template is="dom-if" if="[[admin]]">
-            <aspen-nav-menu-item
-              label="Curation"
-              icon="aspen:pencil"
-              page="curation-queue"
-              disabled="[[!isLoggedIn]]"
-            >
-            </aspen-nav-menu-item>
             <aspen-nav-menu-item
               label="Indications"
               icon="aspen:clinical-trial"
