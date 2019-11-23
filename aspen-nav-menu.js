@@ -182,7 +182,7 @@ class AspenNavMenu extends AspenSecurableMixin(
             <aspen-nav-menu-item
               label="Indications"
               icon="aspen:clinical-trial"
-              page="settings-indications"
+              page="indications"
               disabled="[[!isLoggedIn]]"
             >
             </aspen-nav-menu-item>
