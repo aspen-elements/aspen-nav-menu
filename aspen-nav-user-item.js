@@ -153,22 +153,15 @@ class AspNavUserItem extends AspenNavItemMixin(PolymerElement) {
    * @param {Object} model the firebase user model
    */
   __computeName(profile, model) {
-    let name = "";
-
-    if (model === null) {
+    if (profile === null) {
       return "Not Signed In";
     }
-
     if (model && model.displayName) {
       name = model.displayName;
-    } else if (profile && profile.firstName && profile.lastName) {
+    } else if (profile && profile.firstName) {
       name = profile.firstName + " " + profile.lastName;
-    } else if (model.email.length > 1 && model.email !== null) {
-      //this is important when we are using email to  sign in especially for curator, when a user does not
-      //need to fill out  a form giving first name , last name etc.
-      name = model.email;
     } else {
-      name = "Not Signed In";
+      name = "Edit you Profile";
     }
 
     return name;
