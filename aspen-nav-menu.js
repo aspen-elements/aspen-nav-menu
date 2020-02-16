@@ -83,7 +83,7 @@ class AspenNavMenu extends AspenSecurableMixin(
             <aspen-nav-menu-item
               label="Curation Queue"
               icon="aspen:pencil"
-              page="curation-queue"
+              page="curation-queue/"
               disabled="[[!isLoggedIn]]"
             >
             </aspen-nav-menu-item>
