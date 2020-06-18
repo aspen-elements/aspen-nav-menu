@@ -161,7 +161,7 @@ class AspNavUserItem extends AspenNavItemMixin(PolymerElement) {
     } else if (profile && profile.firstName) {
       name = profile.firstName + " " + profile.lastName;
     } else {
-      name = "Edit you Profile";
+      name = "Edit your Profile";
     }
 
     return name;

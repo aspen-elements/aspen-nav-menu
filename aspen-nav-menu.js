@@ -195,6 +195,16 @@ class AspenNavMenu extends AspenSecurableMixin(
             >
             </aspen-secure-nav-menu-item>
           </template>
+
+          <template is="dom-if" if="[[!admin]]">
+            <aspen-nav-menu-item
+              label="Privacy Policy"
+              icon="aspen:feedback"
+              page="privacy-policy"
+            >
+            </aspen-nav-menu-item>
+          </template>
+
           <aspen-login-menu-item
             page="login"
             is-logged-in="[[isLoggedIn]]"
